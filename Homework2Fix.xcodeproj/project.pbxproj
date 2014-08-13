@@ -399,6 +399,7 @@
 				D8A3C7E61997265C0018EAD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8A3C7E71997265C0018EAD9 /* Build configuration list for PBXNativeTarget "Homework2FixTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +408,7 @@
 				D8A3C7E91997265C0018EAD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

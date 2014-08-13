@@ -8,44 +8,106 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var rosterList = [Person] ()
+    @IBOutlet weak var tableView: UITableView!
     
-    var studentFirst = ["Nate", "Matthew", "Jeff", "John", "Chrstie", "David", "Adrian", "Jake", "Brad", "Shams", "Cameron", "Kori", "Parker", "Nathan", "Casey", "Brendan", "Brian", "Mark", "Rowan", "Kevin", "Will", "Heather", "Tuan", "Zack", "Sara", "Hongyao"]
-    var studentLast = ["Birkholz", "Brightbill", "Chavez", "Clem", "Ferderer", "Fry", "Gherle", "Hawken", "Johnson", "Kazi", "Klein", "Kolodziejczak", "Lewis", "Ma", "MacPhee", "McAleer", "Mendez", "Morris", "North", "Pham", "Richman", "Thueringer", "Vu", "Walkingstick", "Wong", "Zhang"]
+    var people = [Person]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.createPeople()
+        println(self.people.count)
         
-        self.rosterList = initializeRoster(studentFirst, nameList: studentLast)
-        
-        for var i = 0; i < rosterList.count; i++ {
-            println(rosterList[i].fullName())
-        }
-    }
-    
-    func initializeRoster (nameFirst: [String], nameList: [String]) -> [Person] {
-        var roster = [Person] ()
-        
-
-        
-        for var i = 0; i < nameFirst.count; i++ {
-            roster.append(Person(firstName: (studentFirst[i]), lastName: (studentLast[i])))
-        }
-        return (roster)
-    }
-    
-    
-    @IBAction func didClick (sender: UIButton) {
-    }
         // Do any additional setup after loading the view, typically from a nib.
+        
+    }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func createPeople() {
+        
+        var nate = Person (firstName: "Nate", lastName: "Birkholz")
+        var matthew = Person (firstName: "Matthew", lastName: "Brightbill")
+        var jeff = Person (firstName: "Jeff", lastName: "Clem")
+        var chrstie = Person (firstName: "Chrstie", lastName: "Ferderer")
+        var david = Person (firstName: "David", lastName: "Fry")
+        var adrian = Person (firstName: "Adrian", lastName: "Gherle")
+        var jake = Person (firstName: "Jake", lastName: "Hawken")
+        var brad = Person (firstName: "Brad", lastName: "Johnson")
+        var shams = Person (firstName: "Shams", lastName: "Kazi")
+        var cameron = Person (firstName: "Cameron", lastName: "Klein")
+        var kori = Person (firstName: "Kori", lastName: "Kolodziejczak")
+        var parker = Person (firstName: "Parker", lastName: "Lewis")
+        var nathan = Person (firstName: "Nathan", lastName: "Ma")
+        var casey = Person (firstName: "Casey", lastName: "MacPhee")
+        var brendan = Person (firstName: "Brendan", lastName: "McAleer")
+        var mark = Person (firstName: "Mark", lastName: "Morris")
+        var rowan = Person (firstName: "Rowan", lastName: "North")
+        var kevin = Person (firstName: "Kevin", lastName: "Pham")
+        var will = Person (firstName: "Will", lastName: "Richman")
+        var heather = Person (firstName: "Heather", lastName: "Thueringer")
+        var tuan = Person (firstName: "Tuan", lastName: "Vu")
+        var zack = Person (firstName: "Zack", lastName: "Walkingstick")
+        var sara = Person (firstName: "Sara", lastName: "Wong")
+        var hongyao = Person (firstName: "Hongyao", lastName: "Zhang")
+        
+        self.people.append(nate)
+        self.people.append(matthew)
+        self.people.append(jeff)
+        self.people.append(chrstie)
+        self.people.append(david)
+        self.people.append(adrian)
+        self.people.append(jake)
+        self.people.append(brad)
+        self.people.append(shams)
+        self.people.append(cameron)
+        self.people.append(kori)
+        self.people.append(parker)
+        self.people.append(nathan)
+        self.people.append(casey)
+        self.people.append(brendan)
+        self.people.append(mark)
+        self.people.append(rowan)
+        self.people.append(kevin)
+        self.people.append(will)
+        self.people.append(heather)
+        self.people.append(tuan)
+        self.people.append(zack)
+        self.people.append(sara)
+        self.people.append(hongyao)
+        
+    
+        
+    }
+    
+    
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.people.count
+    }
+    
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        //get my cell
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        //configure it for the row let personForRow = people[indexPath.row]
+        
+        let singlePerson = self.people[indexPath.row]
+        cell.textLabel.text = singlePerson.fullName()
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        println(indexPath.row)
     }
 
 
