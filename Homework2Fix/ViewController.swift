@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     var people = [Person]()
     
+    var teacher = [Person]()
     
     
     
@@ -27,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         initializePerson()
+        initializeTeacher()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -53,12 +55,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     func initializePerson() {
         self.people.append(Person(fName: "Nate", lName: "Birkholz"))
         self.people.append(Person(fName: "Matthew", lName: "Brightbill"))
-        self.people.append(Person(fName: "Jeff", lName: "Clem"))
         self.people.append(Person(fName: "Kristin", lName: "Ferderer"))
         self.people.append(Person(fName: "David", lName: "Fry"))
         self.people.append(Person(fName: "Adrian", lName: "Gherle"))
         self.people.append(Person(fName: "Jake", lName: "Hawken"))
-        self.people.append(Person(fName: "Brad", lName: "Johnson"))
         self.people.append(Person(fName: "Shams", lName: "Kazi"))
         self.people.append(Person(fName: "Cameron", lName: "Klein"))
         self.people.append(Person(fName: "Kori", lName: "Kolodziejczak"))
@@ -75,6 +75,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         self.people.append(Person(fName: "Zack", lName: "Walkingstick"))
         self.people.append(Person(fName: "Sara", lName: "Wong"))
         self.people.append(Person(fName: "Hongyao", lName: "Zhang"))
+        
+        
+    
+    }
+    
+    func initializeTeacher() {
+        self.teacher.append(Person(fName: "John", lName: "Clem"))
+        self.teacher.append(Person(fName: "Brad", lName: "Johnson"))
+        
+        
     }
     
     
@@ -85,8 +95,25 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         if segue.identifier == "Push" {
             
-            var destination = segue.destinationViewController as DetailViewController
-            destination.person = people[indexPath.row]
+            if tableView.indexPathForSelectedRow().section == 0 {
+                
+                var person = self.people [tableView.indexPathForSelectedRow().row]
+                
+                let studentSegue = segue.destinationViewController as DetailViewController
+                
+                studentSegue.person = person
+            }
+            
+            else {
+                var person = self.teacher [tableView.indexPathForSelectedRow().row]
+                
+                let instructorSegue = segue.destinationViewController as DetailViewController
+                
+                instructorSegue.person = person
+            }
+            
+            //var destination = segue.destinationViewController as DetailViewController
+            //destination.person = people[indexPath.row]
             
             //self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
         }
@@ -99,17 +126,49 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
+        
         return self.people.count
+            
+        }
+        else {
+            
+            return self.teacher.count
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        return 2
     }
     
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel.text = people[indexPath.row].fullName()
+        if indexPath.section == 0{
+            
+            var studentRow = self.people[indexPath.row]
+            
+            cell.textLabel.text = studentRow.fullName()
+        }
+        else {
+            var teacherRow = self.teacher[indexPath.row]
+            
+            cell.textLabel.text = teacherRow.fullName()
+        }
         
         return cell
 }
+    
+    func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
+        if section == 0 {
+            return "Students"
+        }
+        else {
+            return "Instructors"
+        }
+    }
 
 
 }
