@@ -1,115 +1,115 @@
 //
 //  ViewController.swift
-//  Homework2Fix
+//  WeekendPractice
 //
-//  Created by Nathan Ma on 8/9/14.
+//  Created by Nathan Ma on 8/17/14.
 //  Copyright (c) 2014 Nathan. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+
+class ViewController: UIViewController, UITableViewDataSource {
+    
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     var people = [Person]()
-
+    
+    
+    
+    
+    //MARK:View methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.createPeople()
-        println(self.people.count)
+        
+        initializePerson()
         
         // Do any additional setup after loading the view, typically from a nib.
-        
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func createPeople() {
-        
-        var nate = Person (firstName: "Nate", lastName: "Birkholz")
-        var matthew = Person (firstName: "Matthew", lastName: "Brightbill")
-        var jeff = Person (firstName: "Jeff", lastName: "Clem")
-        var chrstie = Person (firstName: "Chrstie", lastName: "Ferderer")
-        var david = Person (firstName: "David", lastName: "Fry")
-        var adrian = Person (firstName: "Adrian", lastName: "Gherle")
-        var jake = Person (firstName: "Jake", lastName: "Hawken")
-        var brad = Person (firstName: "Brad", lastName: "Johnson")
-        var shams = Person (firstName: "Shams", lastName: "Kazi")
-        var cameron = Person (firstName: "Cameron", lastName: "Klein")
-        var kori = Person (firstName: "Kori", lastName: "Kolodziejczak")
-        var parker = Person (firstName: "Parker", lastName: "Lewis")
-        var nathan = Person (firstName: "Nathan", lastName: "Ma")
-        var casey = Person (firstName: "Casey", lastName: "MacPhee")
-        var brendan = Person (firstName: "Brendan", lastName: "McAleer")
-        var mark = Person (firstName: "Mark", lastName: "Morris")
-        var rowan = Person (firstName: "Rowan", lastName: "North")
-        var kevin = Person (firstName: "Kevin", lastName: "Pham")
-        var will = Person (firstName: "Will", lastName: "Richman")
-        var heather = Person (firstName: "Heather", lastName: "Thueringer")
-        var tuan = Person (firstName: "Tuan", lastName: "Vu")
-        var zack = Person (firstName: "Zack", lastName: "Walkingstick")
-        var sara = Person (firstName: "Sara", lastName: "Wong")
-        var hongyao = Person (firstName: "Hongyao", lastName: "Zhang")
-        
-        self.people.append(nate)
-        self.people.append(matthew)
-        self.people.append(jeff)
-        self.people.append(chrstie)
-        self.people.append(david)
-        self.people.append(adrian)
-        self.people.append(jake)
-        self.people.append(brad)
-        self.people.append(shams)
-        self.people.append(cameron)
-        self.people.append(kori)
-        self.people.append(parker)
-        self.people.append(nathan)
-        self.people.append(casey)
-        self.people.append(brendan)
-        self.people.append(mark)
-        self.people.append(rowan)
-        self.people.append(kevin)
-        self.people.append(will)
-        self.people.append(heather)
-        self.people.append(tuan)
-        self.people.append(zack)
-        self.people.append(sara)
-        self.people.append(hongyao)
-        
     
-        
+    //MARK: Functions
+    
+    func initializePerson() {
+        self.people.append(Person(fName: "Nate", lName: "Birkholz"))
+        self.people.append(Person(fName: "Matthew", lName: "Brightbill"))
+        self.people.append(Person(fName: "Jeff", lName: "Clem"))
+        self.people.append(Person(fName: "Kristin", lName: "Ferderer"))
+        self.people.append(Person(fName: "David", lName: "Fry"))
+        self.people.append(Person(fName: "Adrian", lName: "Gherle"))
+        self.people.append(Person(fName: "Jake", lName: "Hawken"))
+        self.people.append(Person(fName: "Brad", lName: "Johnson"))
+        self.people.append(Person(fName: "Shams", lName: "Kazi"))
+        self.people.append(Person(fName: "Cameron", lName: "Klein"))
+        self.people.append(Person(fName: "Kori", lName: "Kolodziejczak"))
+        self.people.append(Person(fName: "Parker", lName: "Lewis"))
+        self.people.append(Person(fName: "Nathan", lName: "Ma"))
+        self.people.append(Person(fName: "Casey", lName: "MacPhee"))
+        self.people.append(Person(fName: "Brendan", lName: "McAleer"))
+        self.people.append(Person(fName: "Mark", lName: "Morris"))
+        self.people.append(Person(fName: "Rowan", lName: "North"))
+        self.people.append(Person(fName: "Kevin", lName: "Pham"))
+        self.people.append(Person(fName: "Will", lName: "Richman"))
+        self.people.append(Person(fName: "Heather", lName: "Thueringer"))
+        self.people.append(Person(fName: "Tuan", lName: "Vu"))
+        self.people.append(Person(fName: "Zack", lName: "Walkingstick"))
+        self.people.append(Person(fName: "Sara", lName: "Wong"))
+        self.people.append(Person(fName: "Hongyao", lName: "Zhang"))
     }
+    
+    
+    //MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        
+        let indexPath = self.tableView.indexPathForSelectedRow()
+        
+        if segue.identifier == "Push" {
+            
+            var destination = segue.destinationViewController as DetailViewController
+            destination.person = people[indexPath.row]
+            
+            //self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        }
+    }
+    
+    
+    
+    //MARK: UITableViewDataSource
+    
     
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        
         return self.people.count
     }
     
+    
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        //get my cell
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        //configure it for the row let personForRow = people[indexPath.row]
-        
-        let singlePerson = self.people[indexPath.row]
-        cell.textLabel.text = singlePerson.fullName()
+        cell.textLabel.text = people[indexPath.row].fullName()
         
         return cell
-    }
-    
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        println(indexPath.row)
-    }
+}
 
 
 }
-

@@ -13,6 +13,7 @@
 		D8A3C7D51997265C0018EAD9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8A3C7D41997265C0018EAD9 /* Images.xcassets */; };
 		D8A3C7E11997265C0018EAD9 /* Homework2FixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3C7E01997265C0018EAD9 /* Homework2FixTests.swift */; };
 		D8A3C7EB199726F20018EAD9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3C7EA199726F20018EAD9 /* Person.swift */; };
+		D8A7785D19A2C7BC0070476B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7785C19A2C7BC0070476B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D8A3C7DF1997265C0018EAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8A3C7E01997265C0018EAD9 /* Homework2FixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework2FixTests.swift; sourceTree = "<group>"; };
 		D8A3C7EA199726F20018EAD9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		D8A7785C19A2C7BC0070476B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				D8A3C7CD1997265C0018EAD9 /* AppDelegate.swift */,
-				D8A3C7CF1997265C0018EAD9 /* ViewController.swift */,
-				D8A3C7EA199726F20018EAD9 /* Person.swift */,
-				D8A3C7D11997265C0018EAD9 /* Main.storyboard */,
+				D8D0CF4C199FD8EE001112D5 /* Model */,
+				D8D0CF4B199FD8DD001112D5 /* Controller */,
+				D8D0CF4D199FD8FA001112D5 /* View */,
 				D8A3C7D41997265C0018EAD9 /* Images.xcassets */,
 				D8A3C7CB1997265C0018EAD9 /* Supporting Files */,
 			);
@@ -110,6 +112,31 @@
 				D8A3C7DF1997265C0018EAD9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8D0CF4B199FD8DD001112D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D8A3C7CF1997265C0018EAD9 /* ViewController.swift */,
+				D8A7785C19A2C7BC0070476B /* DetailViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D8D0CF4C199FD8EE001112D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8A3C7EA199726F20018EAD9 /* Person.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D8D0CF4D199FD8FA001112D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D8A3C7D11997265C0018EAD9 /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +241,7 @@
 				D8A3C7EB199726F20018EAD9 /* Person.swift in Sources */,
 				D8A3C7D01997265C0018EAD9 /* ViewController.swift in Sources */,
 				D8A3C7CE1997265C0018EAD9 /* AppDelegate.swift in Sources */,
+				D8A7785D19A2C7BC0070476B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Homework2Fix/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -341,6 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Homework2Fix/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
