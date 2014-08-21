@@ -14,6 +14,7 @@
 		D8A3C7E11997265C0018EAD9 /* Homework2FixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3C7E01997265C0018EAD9 /* Homework2FixTests.swift */; };
 		D8A3C7EB199726F20018EAD9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3C7EA199726F20018EAD9 /* Person.swift */; };
 		D8A7785D19A2C7BC0070476B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7785C19A2C7BC0070476B /* DetailViewController.swift */; };
+		D8A778E219A5A9850070476B /* KK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8A778E119A5A9850070476B /* KK.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D8A3C7E01997265C0018EAD9 /* Homework2FixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework2FixTests.swift; sourceTree = "<group>"; };
 		D8A3C7EA199726F20018EAD9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D8A7785C19A2C7BC0070476B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
+		D8A778E119A5A9850070476B /* KK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = KK.jpg; path = ../../../../KK.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		D8A3C7CB1997265C0018EAD9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D8A778E119A5A9850070476B /* KK.jpg */,
 				D8A3C7CC1997265C0018EAD9 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -219,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A778E219A5A9850070476B /* KK.jpg in Resources */,
 				D8A3C7D31997265C0018EAD9 /* Main.storyboard in Resources */,
 				D8A3C7D51997265C0018EAD9 /* Images.xcassets in Resources */,
 			);

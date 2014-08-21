@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializePerson()
+        initializePeople()
         initializeTeacher()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     //MARK: Functions
     
-    func initializePerson() {
+    func initializePeople() {
         self.people.append(Person(fName: "Nate", lName: "Birkholz"))
         self.people.append(Person(fName: "Matthew", lName: "Brightbill"))
         self.people.append(Person(fName: "Kristin", lName: "Ferderer"))
@@ -146,7 +146,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
-        if indexPath.section == 0{
+        if indexPath.section == 0 {
             
             var studentRow = self.people[indexPath.row]
             
